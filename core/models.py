@@ -23,3 +23,11 @@ class Skills(models.Model):
     progress_by_percent = models.PositiveSmallIntegerField(validators=[MinValueValidator(0), MaxValueValidator(100)])
     person = models.ForeignKey(Person, on_delete=models.SET_NULL, null=True, blank=True)
 
+
+class Portfolio(models.Model):
+    title = models.CharField(max_length=30)
+    short_description = models.CharField(max_length=100)
+    img = models.ImageField(upload_to='portfolio_images')
+    url = models.URLField(max_length=200)
+
+
