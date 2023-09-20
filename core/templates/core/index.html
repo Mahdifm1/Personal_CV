@@ -68,17 +68,17 @@
                     </div>
                     <div class="section">
                         <div class="container">
-                            <div class="button-container"><a class="btn btn-default btn-round btn-lg btn-icon" href="#"
-                                                             rel="tooltip" title="Follow me on Facebook"><i
-                                    class="fa fa-facebook"></i></a><a class="btn btn-default btn-round btn-lg btn-icon"
-                                                                      href="#" rel="tooltip"
-                                                                      title="Follow me on Twitter"><i
-                                    class="fa fa-twitter"></i></a><a class="btn btn-default btn-round btn-lg btn-icon"
-                                                                     href="#" rel="tooltip"
-                                                                     title="Follow me on Google+"><i
-                                    class="fa fa-google-plus"></i></a><a
-                                    class="btn btn-default btn-round btn-lg btn-icon" href="#" rel="tooltip"
-                                    title="Follow me on Instagram"><i class="fa fa-instagram"></i></a></div>
+                            <div class="button-container"><a class="btn btn-default btn-round btn-lg btn-icon" href="{{ person.telegram_url }}"
+                                                             rel="tooltip" title="Contact me on Telegram"><i
+                                    class="fa fa-telegram"></i></a><a class="btn btn-default btn-round btn-lg btn-icon"
+                                                                      href="{{ person.linkedin_url }}" rel="tooltip"
+                                                                      title="Follow me on Linkedin"><i
+                                    class="fa fa-linkedin"></i></a><a class="btn btn-default btn-round btn-lg btn-icon"
+                                                                     href="{{ person.email_url }}" rel="tooltip"
+                                                                     title="Contact me on Gmail"><i
+                                    class="fa fa-google"></i></a><a
+                                    class="btn btn-default btn-round btn-lg btn-icon" href="{{ person.github_url }}" rel="tooltip"
+                                    title="Follow me on GitHub"><i class="fa fa-github"></i></a></div>
                         </div>
                     </div>
                 </div>
@@ -316,18 +316,15 @@
     </div>
 </div>
 <footer class="footer">
-    <div class="container text-center"><a class="cc-facebook btn btn-link" href="#"><i class="fa fa-facebook fa-2x "
+    <div class="container text-center"><a class="cc-telegram btn btn-link" href="{{ person.telegram_url }}"><i class="fa fa-telegram fa-2x "
                                                                                        aria-hidden="true"></i></a><a
-            class="cc-twitter btn btn-link " href="#"><i class="fa fa-twitter fa-2x " aria-hidden="true"></i></a><a
-            class="cc-google-plus btn btn-link" href="#"><i class="fa fa-google-plus fa-2x"
+            class="cc-linkedin btn btn-link " href="{{ person.linkedin_url }}"><i class="fa fa-linkedin fa-2x " aria-hidden="true"></i></a><a
+            class="cc-google btn btn-link" href="{{ person.email_url }}"><i class="fa fa-google fa-2x"
                                                             aria-hidden="true"></i></a><a
-            class="cc-instagram btn btn-link" href="#"><i class="fa fa-instagram fa-2x " aria-hidden="true"></i></a>
+            class="cc-github btn btn-link" href="{{ person.github_url }}"><i class="fa fa-github fa-2x " aria-hidden="true"></i></a>
     </div>
-    <div class="h4 title text-center">Anthony Barnett</div>
-    <div class="text-center text-muted">
-        <p>&copy; Creative CV. All rights reserved.<br>Design - <a class="credit" href="https://templateflip.com"
-                                                                   target="_blank">TemplateFlip</a></p>
-    </div>
+    <div class="h4 title text-center">{{ person.name }}</div>
+
 </footer>
 <script src="{% static 'core/js/core/jquery.3.2.1.min.js' %}"></script>
 <script src="{% static 'core/js/core/popper.min.js' %}"></script>
