@@ -18,3 +18,9 @@ class Person(models.Model):
     languages = models.CharField(max_length=50)
     img = models.ImageField(upload_to='image')
 
+
+class Skills(models.Model):
+    skill_name = models.CharField(max_length=30)
+    progress_by_percent = models.PositiveSmallIntegerField(validators=[MinValueValidator(0), MaxValueValidator(100)])
+    person = models.ForeignKey(Person, on_delete=models.SET_NULL, null=True, blank=True)
+
