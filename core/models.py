@@ -47,8 +47,8 @@ class Portfolio(models.Model):
 
 
 class Work_Experience(models.Model):
-    company_name = models.CharField(max_length=30)
-    job_title = models.CharField(max_length=30)
+    company_name = models.CharField(max_length=50)
+    job_title = models.CharField(max_length=50)
     description = models.TextField()
     start_date = models.CharField(max_length=30)
     end_date = models.CharField(max_length=30)
