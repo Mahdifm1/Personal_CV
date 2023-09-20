@@ -17,6 +17,11 @@ class Person(models.Model):
     languages = models.CharField(max_length=50)
     img = models.ImageField(upload_to='image')
 
+    telegram_url = models.CharField(max_length=50)
+    email_url = models.CharField(max_length=50)
+    linkedin_url = models.CharField(max_length=50)
+    github_url = models.CharField(max_length=50)
+
     def __str__(self):
         return self.name
 
