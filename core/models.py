@@ -64,3 +64,11 @@ class Education(models.Model):
 
     def __str__(self):
         return self.university_name
+
+
+class Contact_me(models.Model):
+    name = models.CharField(max_length=60)
+    subject = models.CharField(max_length=100)
+    email = models.EmailField()
+    massage = models.TextField()
+    is_read_by_admin = models.BooleanField(default=False)
