@@ -39,3 +39,13 @@ class Work_Experience(models.Model):
     start_date = models.CharField(max_length=30)
     end_date = models.CharField(max_length=30)
     person = models.ForeignKey(Person, on_delete=models.SET_NULL)
+
+
+class Education(models.Model):
+    university_name = models.CharField(max_length=20)
+    degree = models.CharField(max_length=20)
+    major = models.CharField(max_length=50)
+    description = models.TextField()
+    start_date = models.CharField(max_length=30)
+    end_date = models.CharField(max_length=30)
+    person = models.ForeignKey(Person, on_delete=models.SET_NULL)
