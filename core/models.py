@@ -32,3 +32,10 @@ class Portfolio(models.Model):
     person = models.ForeignKey(Person, models.SET_NULL)
 
 
+class Work_Experience(models.Model):
+    company_name = models.CharField(max_length=30)
+    job_title = models.CharField(max_length=30)
+    description = models.TextField()
+    start_date = models.CharField(max_length=30)
+    end_date = models.CharField(max_length=30)
+    person = models.ForeignKey(Person, on_delete=models.SET_NULL)
