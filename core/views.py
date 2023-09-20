@@ -1,4 +1,5 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
+
 from . import models, forms
 
 
@@ -9,6 +10,7 @@ def index(request):
         portfolio = models.Portfolio.objects.all()
         work_experience = models.Work_Experience.objects.all()
         education = models.Education.objects.all()
+        form = forms.ContactMeForm()
 
         separated_skills = []
         skill_row = []
@@ -23,7 +25,8 @@ def index(request):
             'portfolio': portfolio,
             'skills': separated_skills,
             'work_experience': work_experience,
-            'education': education
+            'education': education,
+            'form': form
         }
 
         return render(request, 'core/index.html', context)
@@ -38,3 +41,6 @@ def index(request):
                 email=data.get('email'),
                 massage=data.get('massage')
             )
+            contact.save()
+
+        return redirect('/')
