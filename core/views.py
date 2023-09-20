@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from . import models
+from . import models, forms
 
 
 def index(request):
@@ -18,7 +18,6 @@ def index(request):
                 separated_skills.append(skill_row)
                 skill_row = []
 
-
         context = {
             'person': person,
             'portfolio': portfolio,
@@ -30,4 +29,12 @@ def index(request):
         return render(request, 'core/index.html', context)
 
     else:
-        return
+        form = forms.ContactMeForm(request.POST)
+        if form.is_valid():
+            data = form.cleaned_data
+            contact = models.Contact_me(
+                name=data.get('name'),
+                subject=data.get('subject'),
+                email=data.get('email'),
+                massage=data.get('massage')
+            )
