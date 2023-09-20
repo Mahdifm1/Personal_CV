@@ -29,5 +29,6 @@ class Portfolio(models.Model):
     short_description = models.CharField(max_length=100)
     img = models.ImageField(upload_to='portfolio_images')
     url = models.URLField(max_length=200)
+    person = models.ForeignKey(Person, models.SET_NULL)
 
 
