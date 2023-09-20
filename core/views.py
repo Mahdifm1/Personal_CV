@@ -1,3 +1,7 @@
+import mimetypes
+from pathlib import Path
+
+from django.http import HttpResponse
 from django.shortcuts import render, redirect
 
 from . import models, forms
@@ -44,3 +48,16 @@ def index(request):
             contact.save()
 
         return redirect('/')
+
+
+def download_cv(request):
+    # fill these variables with real values
+    fl_path = str(Path(__file__).resolve().parent.parent) + '\\files\\cv.pdf'
+    print(fl_path)
+    filename = 'cv.pdf'
+
+    fl = open(fl_path, 'rb')
+    mime_type, _ = mimetypes.guess_type(fl_path)
+    response = HttpResponse(fl, content_type=mime_type)
+    response['Content-Disposition'] = "attachment; filename=%s" % filename
+    return response
