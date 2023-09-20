@@ -1,5 +1,4 @@
 from django.db import models
-from solo.models import SingletonModel
 from django.core.validators import MaxValueValidator, MinValueValidator
 
 
