@@ -33,3 +33,7 @@ class PersonAdmin(admin.ModelAdmin):
 class PersonAdmin(admin.ModelAdmin):
     list_display = ('university_name', 'degree', 'major')
 
+
+@admin.register(models.Contact_me)
+class PersonAdmin(admin.ModelAdmin):
+    list_display = ('name', 'subject', 'email', 'is_read_by_admin')
