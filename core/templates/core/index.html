@@ -26,7 +26,7 @@
     <div class="profile-page sidebar-collapse">
         <nav class="navbar navbar-expand-lg fixed-top navbar-transparent bg-primary" color-on-scroll="400">
             <div class="container">
-                <div class="navbar-translate"><a class="navbar-brand" href="#" rel="tooltip">Personal CV</a>
+                <div class="navbar-translate"><a class="navbar-brand" rel="tooltip">Personal CV</a>
                     <button class="navbar-toggler navbar-toggler" type="button" data-toggle="collapse"
                             data-target="#navigation" aria-controls="navigation" aria-expanded="false"
                             aria-label="Toggle navigation"><span class="navbar-toggler-bar bar1"></span><span
@@ -55,12 +55,12 @@
                          style="background-image: url({% static 'core/images/cc-bg-1.jpg' %})"></div>
                     <div class="container">
                         <div class="content-center">
-                            <div class="cc-profile-image"><a href="#"><img src="{% static 'core/images/mahdi.jpg' %}"
+                            <div class="cc-profile-image"><a><img src="{% static 'core/images/mahdi.jpg' %}"
                                                                            alt="Image"/></a></div>
                             <div class="h2 title">{{ person.name }}</div>
                             <p class="category text-white">{{ person.short_skills }}</p><a
                                 class="btn btn-primary smooth-scroll mr-2" href="#contact" data-aos="zoom-in"
-                                data-aos-anchor="data-aos-anchor">Hire Me</a><a class="btn btn-primary" href="#"
+                                data-aos-anchor="data-aos-anchor">Hire Me</a><a class="btn btn-primary" href="{% url 'download_cv' %}"
                                                                                 data-aos="zoom-in"
                                                                                 data-aos-anchor="data-aos-anchor">Download
                             CV</a>
