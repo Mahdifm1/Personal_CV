@@ -17,19 +17,28 @@ class Person(models.Model):
     languages = models.CharField(max_length=50)
     img = models.ImageField(upload_to='image')
 
+    def __str__(self):
+        return self.name
+
 
 class Skills(models.Model):
     skill_name = models.CharField(max_length=30)
     progress_by_percent = models.PositiveSmallIntegerField(validators=[MinValueValidator(0), MaxValueValidator(100)])
     person = models.ForeignKey(Person, on_delete=models.SET_NULL, null=True, blank=True)
 
+    def __str__(self):
+        return self.skill_name
+
 
 class Portfolio(models.Model):
-    title = models.CharField(max_length=30)
+    title = models.CharField(max_length=50)
     short_description = models.CharField(max_length=100)
     img = models.ImageField(upload_to='portfolio_images')
     url = models.URLField(max_length=200)
-    person = models.ForeignKey(Person, models.SET_NULL)
+    person = models.ForeignKey(Person, models.SET_NULL, null=True, blank=True)
+
+    def __str__(self):
+        return self.title
 
 
 class Work_Experience(models.Model):
@@ -38,14 +47,20 @@ class Work_Experience(models.Model):
     description = models.TextField()
     start_date = models.CharField(max_length=30)
     end_date = models.CharField(max_length=30)
-    person = models.ForeignKey(Person, on_delete=models.SET_NULL)
+    person = models.ForeignKey(Person, on_delete=models.SET_NULL, null=True, blank=True)
+
+    def __str__(self):
+        return self.company_name
 
 
 class Education(models.Model):
     university_name = models.CharField(max_length=20)
-    degree = models.CharField(max_length=20)
+    degree = models.CharField(max_length=50)
     major = models.CharField(max_length=50)
     description = models.TextField()
     start_date = models.CharField(max_length=30)
     end_date = models.CharField(max_length=30)
-    person = models.ForeignKey(Person, on_delete=models.SET_NULL)
+    person = models.ForeignKey(Person, on_delete=models.SET_NULL, null=True, blank=True)
+
+    def __str__(self):
+        return self.university_name
