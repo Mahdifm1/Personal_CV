@@ -47,6 +47,16 @@ def index(request):
             )
             contact.save()
 
+            # send email to site admin
+            message = render_to_string('core/contact_me.html', context={
+                'name': data.get('name'),
+                'subject': data.get('subject'),
+                'email': data.get('email'),
+                'massage': data.get('massage')
+            })
+            send_mail('Someone is trying to hire you!'.title(), message, 'sender email address',
+                      ['admin email address'], fail_silently=False, html_message=message)
+
         return redirect('/')
 
 
