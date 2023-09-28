@@ -129,3 +129,12 @@ MEDIA_URL = '/media/'
 
 # Path where media is stored
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media/')
+
+# send email
+EMAIL_BACKEND = "django.core.mail.backends.smtp.EmailBackend"
+EMAIL_HOST = "your email smtp"
+EMAIL_PORT = 587
+EMAIL_HOST_USER = "your email host user"
+EMAIL_HOST_PASSWORD = "your email host password"
+EMAIL_USE_TLS = True
+
