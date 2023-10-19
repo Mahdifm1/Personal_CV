@@ -22,6 +22,8 @@ class Person(models.Model):
     linkedin_url = models.CharField(max_length=50)
     github_url = models.CharField(max_length=50)
 
+    personal_cv_pdf = models.FileField(upload_to='files', null=True, blank=True)
+
     def __str__(self):
         return self.name
 
