@@ -40,6 +40,7 @@ def index(request):
     else:
         form = forms.ContactMeForm(request.POST)
         if form.is_valid():
+            # save contact me form
             data = form.cleaned_data
             contact = models.Contact_me(
                 name=data.get('name'),
@@ -63,10 +64,22 @@ def index(request):
 
 
 def download_cv(request):
-    # fill these variables with real values
-    fl_path = str(Path(__file__).resolve().parent.parent) + '\\files\\cv.pdf'
-    print(fl_path)
-    filename = 'cv.pdf'
+    person = models.Person.objects.all().first()
+    cv = None
+    if person:
+        cv = person.personal_cv_pdf
+
+    fl_path = ""
+    filename = ""
+    if not cv:
+        # fill these variables with real values
+        fl_path = str(Path(__file__).resolve().parent.parent) + '/files/cv.pdf'
+        print(fl_path)
+        filename = 'cv.pdf'
+
+    else:
+        filename = person.personal_cv_pdf.name.split('/')[-1]
+        fl_path = person.personal_cv_pdf.path
 
     fl = open(fl_path, 'rb')
     mime_type, _ = mimetypes.guess_type(fl_path)
